@@ -17,6 +17,8 @@ bunx @davidalmeida/ui init
 
 Then add components with `add` (e.g. `npx @davidalmeida/ui add select`).
 
+![init and add in a Vite project](docs/demo.gif)
+
 Using shadcn/ui? Every component is also a shadcn registry item (files go to `components/ui/davidalmeida`):
 
 ```bash
