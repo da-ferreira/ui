@@ -17,7 +17,7 @@ Then add components with `add` (e.g. `npx @davidalmeida/ui add select`).
 
 ## Documentation
 
-See [docs/usage.md](docs/usage.md).
+Components, examples and props: **[davidalmeida-ui.vercel.app](https://davidalmeida-ui.vercel.app)**. CLI details in [docs/usage.md](docs/usage.md).
 
 ## Contributing
 

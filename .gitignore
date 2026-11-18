@@ -3,3 +3,5 @@ registry/
 tailwind.css
 *.tgz
 site/dist
+.vercel
+.env*

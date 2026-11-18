@@ -1,3 +1,4 @@
 {
+  "installCommand": "npm ci --prefix .. && npm ci",
   "rewrites": [{ "source": "/(.*)", "destination": "/index.html" }]
 }
