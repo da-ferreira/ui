@@ -17,6 +17,12 @@ bunx @davidalmeida/ui init
 
 Then add components with `add` (e.g. `npx @davidalmeida/ui add select`).
 
+Using shadcn/ui? Every component is also a shadcn registry item (files go to `components/ui/davidalmeida`):
+
+```bash
+npx shadcn@latest add https://davidalmeida-ui.vercel.app/r/select.json
+```
+
 ## Documentation
 
 Components, examples and props: **[davidalmeida-ui.vercel.app](https://davidalmeida-ui.vercel.app)**. CLI details in [docs/usage.md](docs/usage.md).

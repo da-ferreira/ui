@@ -58,6 +58,31 @@ export default function App() {
         />
       </Steps>
 
+      <H2 id="shadcn">With the shadcn CLI</H2>
+      <P>
+        Already using shadcn/ui? Every component is also a shadcn registry item. Dependencies and
+        the theme come along, and the files go to <C>components/ui/davidalmeida</C>, so they never
+        clash with shadcn's own <C>button</C> or <C>select</C>.
+      </P>
+      <Command pkg="shadcn@latest" args="add https://davidalmeida-ui.vercel.app/r/select.json" />
+      <P>
+        Or register the namespace once in <C>components.json</C> and use short names:
+      </P>
+      <Code
+        title="components.json"
+        lang="json"
+        code={`{
+  "registries": {
+    "@davidalmeida": "https://davidalmeida-ui.vercel.app/r/{name}.json"
+  }
+}`}
+      />
+      <Command pkg="shadcn@latest" args="add @davidalmeida/select @davidalmeida/date-picker" />
+      <P>
+        Imports then come from <C>@/components/ui/davidalmeida/Select</C>. The theme adds its own
+        tokens (<C>--bg-*</C>, <C>--fg-*</C>, <C>--brand*</C>) next to shadcn's.
+      </P>
+
       <H2>Commands</H2>
       <H3 id="cmd-add">add</H3>
       <Command args="add <component...>" />

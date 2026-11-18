@@ -1,6 +1,6 @@
 {
   "name": "@davidalmeida/ui",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "React + Tailwind 4 components that the CLI copies into your project.",
   "license": "MIT",
   "author": "David Almeida",

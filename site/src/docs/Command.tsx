@@ -3,13 +3,13 @@ import { Code } from './Code'
 import { MANAGERS, RUN, useManager } from './pm'
 import { Tabs } from './Tabs'
 
-/** `@davidalmeida/ui <args>` with a tab per package manager. */
-export function Command({ args }: { args: string }) {
+/** `<pkg> <args>` with a tab per package manager. */
+export function Command({ args, pkg = '@davidalmeida/ui' }: { args: string; pkg?: string }) {
   const [pm, setPm] = useManager()
   return (
     <Code
       lang="bash"
-      code={`${RUN[pm]} @davidalmeida/ui ${args}`}
+      code={`${RUN[pm]} ${pkg} ${args}`}
       toolbar={
         <div className="flex h-full items-center gap-3">
           <Terminal aria-hidden className="size-3.5 text-faint" />
