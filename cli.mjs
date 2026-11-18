@@ -22,6 +22,14 @@ const LIKELY_CSS = [
 ]
 
 const cwd = process.cwd()
+// Who ran us (pnpm dlx, yarn dlx, bunx, npx): used in hints and when there is no lockfile.
+const AGENT = (process.env.npm_config_user_agent ?? '').split('/')[0]
+const RUN =
+  {
+    pnpm: 'pnpm dlx',
+    bun: 'bunx',
+    yarn: /^yarn\/1\./.test(process.env.npm_config_user_agent) ? 'npx' : 'yarn dlx',
+  }[AGENT] ?? 'npx'
 const [command, ...rest] = process.argv.slice(2)
 const flags = Object.fromEntries(
   rest
@@ -44,7 +52,7 @@ function readJson(file) {
 }
 
 function config() {
-  return readJson(CONFIG) ?? fail(`${CONFIG} not found. Run first: npx ${NAME} init`)
+  return readJson(CONFIG) ?? fail(`${CONFIG} not found. Run first: ${RUN} ${NAME} init`)
 }
 
 function install(packages) {
@@ -60,7 +68,10 @@ function install(packages) {
       ? ['yarn', 'add']
       : existsSync(join(cwd, 'bun.lock')) || existsSync(join(cwd, 'bun.lockb'))
         ? ['bun', 'add']
-        : ['npm', 'install']
+        : ({ pnpm: ['pnpm', 'add'], yarn: ['yarn', 'add'], bun: ['bun', 'add'] }[AGENT] ?? [
+            'npm',
+            'install',
+          ])
   console.log(`→ ${manager.join(' ')} ${missing.join(' ')}`)
   const r = spawnSync(manager[0], [...manager.slice(1), ...missing], {
     cwd,
@@ -80,7 +91,7 @@ function resolve(requested) {
   const all = new Set()
   const visit = (name) => {
     if (all.has(name)) return
-    if (!REGISTRY[name]) fail(`component "${name}" does not exist. See: npx ${NAME} list`)
+    if (!REGISTRY[name]) fail(`component "${name}" does not exist. See: ${RUN} ${NAME} list`)
     all.add(name)
     REGISTRY[name].dependencies.forEach(visit)
   }
@@ -111,13 +122,13 @@ async function init() {
   await writeFile(join(cwd, CONFIG), JSON.stringify({ dir, css }, null, 2) + '\n')
   console.log(`✔ ${CONFIG} created (components in ${dir})`)
   install({ [NAME]: `^${VERSION}` })
-  console.log(`\nDone. Add components with: npx ${NAME} add button`)
+  console.log(`\nDone. Add components with: ${RUN} ${NAME} add button`)
 }
 
 async function add() {
   const { dir } = config()
   const requested = flags.all ? Object.keys(REGISTRY) : names
-  if (!requested.length) fail(`which components? npx ${NAME} add button modal (or --all)`)
+  if (!requested.length) fail(`which components? ${RUN} ${NAME} add button modal (or --all)`)
 
   await mkdir(join(cwd, dir), { recursive: true })
   const npm = {}
@@ -144,7 +155,7 @@ async function add() {
   install(npm)
   if (changed.length)
     console.log(
-      `\nSee the difference with: npx ${NAME} diff ${changed.join(' ')}\nTo replace: npx ${NAME} add ${changed.join(' ')} --overwrite`,
+      `\nSee the difference with: ${RUN} ${NAME} diff ${changed.join(' ')}\nTo replace: ${RUN} ${NAME} add ${changed.join(' ')} --overwrite`,
     )
 }
 
@@ -188,10 +199,10 @@ function list() {
 
 const HELP = `${NAME} ${VERSION}
 
-  npx ${NAME} init [--dir=src/components/ui] [--css=src/index.css]
-  npx ${NAME} add <component...> [--all] [--overwrite]
-  npx ${NAME} diff [component...]
-  npx ${NAME} list`
+  ${RUN} ${NAME} init [--dir=src/components/ui] [--css=src/index.css]
+  ${RUN} ${NAME} add <component...> [--all] [--overwrite]
+  ${RUN} ${NAME} diff [component...]
+  ${RUN} ${NAME} list`
 
 const commands = { init, add, diff, list }
 if (!commands[command]) console.log(HELP)
