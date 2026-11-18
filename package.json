@@ -1,0 +1,56 @@
+{
+  "name": "@davidalmeida/ui",
+  "version": "0.1.1",
+  "description": "React + Tailwind 4 components that the CLI copies into your project.",
+  "license": "MIT",
+  "author": "David Almeida",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/da-ferreira/ui.git"
+  },
+  "homepage": "https://github.com/da-ferreira/ui#readme",
+  "bugs": {
+    "url": "https://github.com/da-ferreira/ui/issues"
+  },
+  "type": "module",
+  "bin": {
+    "ui": "cli.mjs"
+  },
+  "exports": {
+    "./tailwind.css": "./tailwind.css",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "cli.mjs",
+    "registry",
+    "tailwind.css"
+  ],
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "check": "prettier --check . && tsc -p . && node scripts/build.mjs",
+    "prepack": "node scripts/build.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "react",
+    "tailwindcss",
+    "components",
+    "ui",
+    "cli"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "clsx": "^2.1.1",
+    "lucide-react": "^1.63.0",
+    "prettier": "^3.9.10",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "typescript": "^7.0.2"
+  }
+}

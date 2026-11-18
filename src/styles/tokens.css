@@ -1,0 +1,48 @@
+/* Color tokens, light and dark. Plain CSS so it also works outside React. */
+
+:root {
+  --bg-canvas: #ffffff;
+  --bg-surface: #f5f7f9;
+  --bg-surface-hover: #ebeef2;
+  --border-hairline: #e7eaee;
+  --border-field: #d7dce2;
+  --fg-ink: #18202a;
+  --fg-ink-soft: #3f4955;
+  --fg-dim: #68727e;
+  --fg-faint: #9aa3ae;
+  --brand: #0b4aa2;
+  --brand-soft: #e8f0fb;
+  --brand-tint: rgba(11, 74, 162, 0.04);
+  --brand-area: rgba(11, 74, 162, 0.08);
+  --brand-ink: #ffffff;
+  --status-ok: #15803d;
+  --status-ok-soft: rgba(21, 128, 61, 0.1);
+  --status-caution: #b45309;
+  --status-caution-soft: #fbf1dc;
+  --status-danger: #c62828;
+  --status-danger-soft: rgba(198, 40, 40, 0.1);
+}
+
+.dark {
+  --bg-canvas: #0c0e12;
+  --bg-surface: #13161b;
+  --bg-surface-hover: #1b1f26;
+  --border-hairline: #1e232a;
+  --border-field: #2b313a;
+  --fg-ink: #e8ebef;
+  --fg-ink-soft: #c0c7cf;
+  --fg-dim: #8a929c;
+  --fg-faint: #58606a;
+  --brand: #3d7fe0;
+  --brand-soft: #0f1c30;
+  --brand-tint: rgba(61, 127, 224, 0.06);
+  --brand-area: rgba(61, 127, 224, 0.1);
+  --brand-ink: #ffffff;
+  --status-ok: #4fbf7a;
+  --status-ok-soft: rgba(79, 191, 122, 0.12);
+  --status-caution: #e0a33a;
+  --status-caution-soft: #2a2214;
+  --status-danger: #ef5b5b;
+  --status-danger-soft: rgba(239, 91, 91, 0.12);
+  color-scheme: dark;
+}
