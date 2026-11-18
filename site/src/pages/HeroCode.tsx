@@ -148,7 +148,7 @@ export function HeroCode() {
       <div
         role="tablist"
         aria-label="Component"
-        className="mx-auto mb-4 flex w-fit max-w-full gap-1 overflow-x-auto rounded-full border border-hairline bg-canvas/80 p-1 backdrop-blur"
+        className="mx-auto mb-4 flex w-fit max-w-full gap-1 overflow-x-auto rounded-full [scrollbar-width:none] border border-hairline bg-canvas/80 p-1 backdrop-blur"
       >
         {SAMPLES.map((s, i) => (
           <button
@@ -195,7 +195,7 @@ export function HeroCode() {
           ))}
           <CopyButton text={shown} className="my-auto mr-2 ml-auto" />
         </div>
-        <div className="h-[420px] overflow-auto px-5 py-4 font-mono text-[13px] leading-6">
+        <div className="h-[360px] overflow-auto px-5 sm:h-[420px] py-4 font-mono text-[13px] leading-6">
           {file === 'code' ? (
             <Highlighted code={sample.code} lang="tsx" />
           ) : (

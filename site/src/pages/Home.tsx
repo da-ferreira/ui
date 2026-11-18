@@ -39,9 +39,9 @@ import { HeroCode } from './HeroCode'
 
 export function Home() {
   return (
-    <main className="flex-1">
+    <main className="flex-1 overflow-x-clip">
       <title>@davidalmeida/ui</title>
-      <section className="mx-auto grid max-w-[1200px] items-center gap-10 px-4 pt-14 pb-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:pt-24">
+      <section className="mx-auto grid max-w-[1200px] grid-cols-1 items-center gap-10 px-4 pt-14 pb-14 sm:px-6 lg:grid-cols-[0.9fr_1.1fr] lg:gap-16 lg:pt-24">
         <div className="flex flex-col items-start">
           <h1 className="text-4xl leading-[1.08] font-semibold tracking-tight text-balance text-ink sm:text-5xl">
             Components you copy, read and own
@@ -83,12 +83,12 @@ export function Home() {
       </section>
 
       <section className="mx-auto max-w-[1200px] px-4 pb-20 sm:px-6">
-        <div className="grid items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
-          <div className="flex flex-col gap-4">
+        <div className="grid grid-cols-1 items-start gap-4 md:grid-cols-2 lg:grid-cols-3">
+          <div className="flex min-w-0 flex-col gap-4">
             <AgentCard />
             <InviteCard />
           </div>
-          <div className="flex flex-col gap-4">
+          <div className="flex min-w-0 flex-col gap-4">
             <ConversationsCard />
             <NoticesCard />
             <ButtonsCard />
@@ -486,7 +486,7 @@ function OverlaysCard() {
           className="sm:max-w-[400px]"
           footer={<Button onClick={() => setDrawer(false)}>Apply</Button>}
         >
-          <div className="flex flex-col gap-4">
+          <div className="flex min-w-0 flex-col gap-4">
             <Field label="Customer">{(id) => <Input id={id} placeholder="Name or phone" />}</Field>
             <Checkbox checked onChange={() => {}}>
               Only with feedback
