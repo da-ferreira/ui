@@ -38,7 +38,21 @@
     "tailwindcss",
     "components",
     "ui",
-    "cli"
+    "cli",
+    "react-components",
+    "tailwind-v4",
+    "tailwindcss-v4",
+    "component-library",
+    "design-system",
+    "shadcn",
+    "shadcn-alternative",
+    "copy-paste",
+    "accessible",
+    "dark-mode",
+    "date-picker",
+    "select",
+    "sidebar",
+    "toast"
   ],
   "publishConfig": {
     "access": "public"

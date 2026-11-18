@@ -2,6 +2,8 @@
 
 React + Tailwind 4 components you copy into your project and own — accessible, light and dark, built by hand.
 
+**[Docs and live examples →](https://davidalmeida-ui.vercel.app)**
+
 ![Screens built with @davidalmeida/ui, light and dark](docs/screenshot.png)
 
 ## Install

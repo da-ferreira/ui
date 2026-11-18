@@ -3,8 +3,8 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc -p . && vite build",
+    "dev": "node ../scripts/build.mjs && vite",
+    "build": "node ../scripts/build.mjs && tsc -p . && vite build",
     "preview": "vite preview"
   },
   "dependencies": {

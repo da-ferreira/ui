@@ -5,3 +5,4 @@ tailwind.css
 site/dist
 .vercel
 .env*
+site/public/r
