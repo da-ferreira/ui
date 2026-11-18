@@ -116,7 +116,7 @@ for (const [name, { file, dependencies, npm }] of Object.entries(items)) {
     title: title(name),
     dependencies: Object.entries(npm).map(([n, v]) => `${n}@${v}`),
     registryDependencies: [...dependencies, 'theme'].map((d) => `${base}/${d}.json`),
-    files: [{ path: `ui/${file}`, type: 'registry:ui' }],
+    files: [{ path: `ui/davidalmeida/${file}`, type: 'registry:ui' }],
   }
   index.push({ name, ...item })
   item.files[0].content = await readFile(join(components, file), 'utf8')
