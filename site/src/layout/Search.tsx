@@ -30,7 +30,7 @@ export function SearchButton({ className }: { className?: string }) {
         type="button"
         onClick={() => setOpen(true)}
         className={cn(
-          'flex h-9 items-center gap-2 rounded-lg border border-field bg-surface pr-1.5 pl-3 text-sm text-dim transition hover:bg-surface-hover hover:text-ink focus-visible:ring-4 focus-visible:ring-brand-area focus-visible:outline-none',
+          'flex h-9 items-center gap-2 rounded-lg border border-field bg-surface pr-1.5 pl-3 text-sm max-sm:w-9 max-sm:justify-center max-sm:p-0 text-dim transition hover:bg-surface-hover hover:text-ink focus-visible:ring-4 focus-visible:ring-brand-area focus-visible:outline-none',
           className,
         )}
       >
