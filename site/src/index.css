@@ -1,0 +1,27 @@
+@import 'tailwindcss';
+@import '../../src/styles/tokens.css';
+@import '../../src/styles/theme.css';
+
+@source '../../src/components';
+
+html {
+  scroll-padding-top: 5rem;
+}
+
+body {
+  background: var(--bg-canvas);
+  color: var(--fg-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Shiki dual theme: light by default, dark under .dark. */
+.shiki,
+.shiki span {
+  color: var(--shiki-light);
+  background: transparent !important;
+}
+.dark .shiki,
+.dark .shiki span {
+  color: var(--shiki-dark);
+}
