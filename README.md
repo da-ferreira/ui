@@ -4,8 +4,6 @@ React + Tailwind 4 components you copy into your project and own — accessible,
 
 **[Docs and live examples →](https://davidalmeida-ui.vercel.app)**
 
-![Screens built with @davidalmeida/ui, light and dark](docs/screenshot.png)
-
 ## Install
 
 ```bash
